@@ -19,14 +19,13 @@ app.get('/', function(request, response) {
 function conf(response){
   var r = plivo.Response(response);
 
-  r.addSpeak("You will now be placed");
   var params = {
       'enterSound' : "beep:2", // Used to play a sound when a member enters the conference
       'record' : "true", // Option to record the call
   };
 
   var conference_name = "demo"; // Conference Room name
-  r.addConference(conference_name, params);
+  r.addRecord(conference_name, params);
   response.end(r.toXML());
 }
 app.listen(app.get('port'), function() {
