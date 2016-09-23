@@ -16,7 +16,7 @@ app.get('/', function(request, response) {
 })
 
 
-function conf(){
+function conf(response){
   var r = plivo.Response(response);
 
   r.addSpeak("You will now be placed");
@@ -29,3 +29,6 @@ function conf(){
   r.addConference(conference_name, params);
   response.end(r.toXML());
 }
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
