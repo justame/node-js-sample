@@ -25,7 +25,7 @@ function conf(response){
   };
 
   var conference_name = "demo"; // Conference Room name
-  r.addRecord();
+  r.addRecord({playBeep:false});
   response.end(r.toXML());
 }
 app.listen(app.get('port'), function() {
